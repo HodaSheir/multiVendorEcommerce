@@ -32,6 +32,10 @@ require __DIR__.'/auth.php';
 Route::prefix('admin')->namespace('App\Http\Controllers\admin')->group(function(){
     
     Route::match(['get','post'],'/login','adminController@login');
-    Route::get('/dashboard','adminController@dashboard');
+    Route::middleware('admin')->group(function () {
+        Route::get('/dashboard','adminController@dashboard');
+        Route::get('logout' , 'adminController@logout');
+    });
+    
 });
 
