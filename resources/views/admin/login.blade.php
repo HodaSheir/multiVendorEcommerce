@@ -47,7 +47,7 @@
                         @endforeach
                     </ul>
                 </div>
-            @endif
+              @endif
 
               <form class="pt-3" action="{{ url('admin/login') }}" method="post">
                 @csrf
