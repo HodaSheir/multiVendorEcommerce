@@ -34,10 +34,14 @@ Route::prefix('admin')->namespace('App\Http\Controllers\admin')->group(function(
     Route::match(['get','post'],'/login','adminController@login');
     Route::middleware('admin')->group(function () {
         Route::get('/dashboard','adminController@dashboard');
+        //update admin password
         Route::match(['get','post'],'update-admin-password','adminController@updateAdminPassword');
+        //update admin details
         Route::match(['get','post'],'update-admin-details','adminController@updateAdminDetails');
         Route::post('/check-current-password','adminController@checkAdminPassword');
         Route::get('logout' , 'adminController@logout');
+        //update vendor details
+        Route::match(['get','post'],'update-vendor-details/{slug}','adminController@updateVendorDetails');
     });
     
 });

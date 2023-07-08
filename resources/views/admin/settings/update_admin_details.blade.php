@@ -89,7 +89,7 @@
                         minlength="10" id="admin_image" name="admin_image"  >
                         @if (!empty(Auth::guard('admin')->user()->image))
                           <a href="{{ url('admin/images/photos/'.Auth::guard('admin')->user()->image) }}" target="_blank"> View Image</a>
-                          <input type="hidden" name="current_image" value="{{ Auth::guard('admin')->user()->image }}" >
+                          <input type="hidden" name="current_image" value="g{{ Auth::guard('admin')->user()->image }}" >
                         @endif
                     </div>
                     <button type="submit" class="btn btn-primary mr-2">Submit</button>
