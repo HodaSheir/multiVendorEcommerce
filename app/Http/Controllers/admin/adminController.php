@@ -257,4 +257,35 @@ class adminController extends Controller
         }
         return view('admin.settings.update_vendor_details')->with(compact('slug','vendorDetails'));
     }
+
+    public function admins($type = null){
+        $admins = Admin::query();
+        if($type){
+            $admins = $admins->where('type',$type);
+            $title = ucfirst($type).'s';
+        }else{
+            $title = 'All Admins/SubAdmins/Vendors';
+        }
+        $admins = $admins->get()->toArray();
+        return view('admin.admins.admins')->with(compact('admins','title'));
+    }
+
+    public function viewVendorDetails($id){
+        $vendorDetails = Admin::where('id',$id)
+        ->with('vendor','vendorBusiness','vendorBank')->firstOrFail()->toArray();
+        return view('admin.admins.view_vendor_details')->with(compact('vendorDetails'));
+    }
+
+    public function updateAdminStatus(Request $request){
+        if($request->ajax()){
+            $data  = $request->all();
+            if($data['status'] == 'active'){
+                $status  = 0;
+            }else{
+                $status = 1;
+            }
+            Admin::where('id',$data['admin_id'])->update(['status' => $status]);
+            return response()->json(['status' => $status]);
+        }
+    }
 }

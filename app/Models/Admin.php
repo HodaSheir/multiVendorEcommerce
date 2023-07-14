@@ -11,4 +11,16 @@ class Admin extends Authenticatable
 {
     use HasFactory;
     protected $guard = 'admin';
+
+    public function vendor(){
+        return $this->belongsTo(Vendor::class , 'vendor_id');
+    }
+
+    public function vendorBusiness(){
+        return $this->belongsTo(VendorBusinessDetails::class , 'vendor_id');
+    }
+
+    public function vendorBank(){
+        return $this->belongsTo(VendorBankDetails::class , 'vendor_id');
+    }
 }

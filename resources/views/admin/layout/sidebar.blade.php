@@ -38,6 +38,36 @@
                 </ul>
             </div>
         </li>
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#ui-admins" aria-expanded="false" aria-controls="ui-admins">
+                <i class="icon-layout menu-icon"></i>
+                <span class="menu-title">Admin Management</span>
+                <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="ui-admins">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item"> <a class="nav-link" href="{{ url('admin/admins/admin') }}">Admins</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="{{ url('admin/admins/subadmin') }}">Sub Admins</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="{{ url('admin/admins/vendor') }}">Vendors</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="{{ url('admin/admins/') }}">All</a></li>
+                    </li>
+                </ul>
+            </div>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#ui-users" aria-expanded="false" aria-controls="ui-users">
+                <i class="icon-head menu-icon "></i>
+                <span class="menu-title">Users Management</span>
+                <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="ui-users">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item"> <a class="nav-link" href="{{ url('admin/users') }}">Users</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="{{ url('admin/subscribers') }}">Subscribers</a></li>
+                    </li>
+                </ul>
+            </div>
+        </li>
         @endif
         
         <li class="nav-item">
